@@ -1,0 +1,40 @@
+﻿@page
+@model LabFrontend.Pages.AnalisisEnterResultModel
+
+<h1>Analysis Result Processing</h1>
+
+@for (var i = 0; i < Model.AnalysisResults.Count; i++)
+{
+    var result = Model.AnalysisResults[i];
+
+    <h4>Id: @result.Id</h4>
+    <h4>Analysis Name: @result.AnalysisName</h4>
+    <h4>Patient Name: @result.PatientName</h4>
+
+    <form method="post" asp-page-handler="ProcessResult" asp-route-analysisId="@result.Id">
+        <div>
+            <label>Laboratory Assistant:</label>
+            <span>@result.LaboratoryAssistants.Find(x => x.Id == result.LaboratoryAssistantId)?.Name</span>
+        </div>
+
+        <div>
+            <label>Nurse:</label>
+            <span>@result.Nurses.Find(x => x.Id == result.NurseId)?.Name</span>
+        </div>
+
+        <div>
+            <label>Registrar:</label>
+            <span>@result.Registrars.Find(x => x.Id == result.RegistrarId)?.Name</span>
+        </div>
+
+        <div>
+            <label>Analysis Values:</label>
+            <textarea name="AnalysisValues" style="width: 500px; height: 200px;">@result.AnalysisValues</textarea>
+        </div>
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr />
+}
