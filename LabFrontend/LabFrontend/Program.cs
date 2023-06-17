@@ -8,8 +8,15 @@ namespace LabFrontend
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddHttpClient();
 
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
             var app = builder.Build();
+            app.UseSession();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

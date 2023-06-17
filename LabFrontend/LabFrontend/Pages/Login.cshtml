@@ -1,0 +1,30 @@
+﻿@page
+@model LabFrontend.Pages.LoginModel
+
+<h1>Login</h1>
+
+@if (Model.ViewData.ModelState.ErrorCount > 0)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in Model.ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <span>@error.ErrorMessage</span>
+
+            <br />
+        }
+    </div>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="Password" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>

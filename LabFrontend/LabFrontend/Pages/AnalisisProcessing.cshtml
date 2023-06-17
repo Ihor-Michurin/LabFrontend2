@@ -1,0 +1,51 @@
+﻿@page
+@model LabFrontend.Pages.AnalisisProcessingModel
+
+<h1>Analysis Result Processing</h1>
+
+@for (var i = 0; i < Model.AnalysisResults.Count; i++)
+{
+    var result = Model.AnalysisResults[i];
+
+    <h4>Analysis Name: @result.AnalysisName</h4>
+    <h4>Patient Name: @result.PatientName</h4>
+
+    <form method="post" asp-page-handler="ProcessResult" asp-route-analysisId="@result.Id">
+        <div>
+            <label for="laboratoryAssistant_@result.Id">Laboratory Assistant:</label>
+            <select id="laboratoryAssistant_@result.Id" name="selectedLaboratoryAssistantId">
+                <option value="@result.LaboratoryAssistantId">@result.LaboratoryAssistants.Find(x => x.Id == result.LaboratoryAssistantId)?.Name</option>
+                @foreach (var assistant in result.LaboratoryAssistants)
+                {
+                    <option value="@assistant.Id">@assistant.Name</option>
+                }
+            </select>
+        </div>
+
+        <div>
+            <label for="nurse_@result.Id">Nurse:</label>
+            <select id="nurse_@result.Id" name="selectedNurseId">
+                <option value="@result.NurseId">@result.Nurses.Find(x => x.Id == result.NurseId)?.Name</option>
+                @foreach (var nurse in result.Nurses)
+                {
+                    <option value="@nurse.Id">@nurse.Name</option>
+                }
+            </select>
+        </div>
+
+        <div>
+            <label for="registrar_@result.Id">Registrar:</label>
+            <select id="registrar_@result.Id" name="selectedRegistrarId">
+                <option value="@result.RegistrarId">@result.Registrars.Find(x => x.Id == result.RegistrarId)?.Name</option>
+                @foreach (var registrar in result.Registrars)
+                {
+                    <option value="@registrar.Id">@registrar.Name</option>
+                }
+            </select>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr />
+}
