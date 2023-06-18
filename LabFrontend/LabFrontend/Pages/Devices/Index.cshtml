@@ -1,0 +1,36 @@
+﻿@page
+@model LabFrontend.Pages.Devices.IndexModel
+@{
+    ViewData["Title"] = "Devices";
+}
+
+<h1>Devices</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Url</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var device in Model.Devices)
+        {
+            <tr>
+                <td>@device.Id</td>
+                <td>@device.Name</td>
+                <td>@device.Url</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@device.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@device.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

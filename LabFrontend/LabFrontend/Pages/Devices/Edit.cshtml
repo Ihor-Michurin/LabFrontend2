@@ -1,0 +1,24 @@
+﻿@page
+@model LabFrontend.Pages.Devices.EditModel
+@{
+    ViewData["Title"] = "Edit Device";
+}
+
+<h1>Edit Device</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <input type="hidden" asp-for="Device.Id" />
+            <div class="form-group">
+                <label asp-for="Device.Name"></label>
+                <input asp-for="Device.Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Device.Url"></label>
+                <input asp-for="Device.Url" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
