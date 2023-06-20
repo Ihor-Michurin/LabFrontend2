@@ -27,7 +27,8 @@
                 <td>@device.Name</td>
                 <td>@device.Url</td>
                 <td>
-                    <a asp-page="Edit" asp-route-id="@device.Id">Edit</a> |
+                    <a asp-page="Edit" asp-route-id="@device.Id">Edit</a>
+                    <a asp-page="DeviceSettings" asp-route-id="@device.Id">Device Settings</a>|
                     <a asp-page="Delete" asp-route-id="@device.Id">Delete</a>
                 </td>
             </tr>

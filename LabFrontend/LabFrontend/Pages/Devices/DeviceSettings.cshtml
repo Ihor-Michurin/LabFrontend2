@@ -1,0 +1,42 @@
+﻿@page "{id}"
+@model LabFrontend.Pages.Devices.DeviceSettingsModel
+@{
+    ViewData["Title"] = "Device Settings";
+}
+
+<h1>Device Settings</h1>
+
+@if (Model.Device != null)
+{
+    <form method="post">
+        <div>
+            <label for="counterCount">Counter Count:</label>
+            <input type="number" id="counterCount" name="DeviceSettings.CounterCount" value="@Model.DeviceSettings.CounterCount" />
+        </div>
+        <div>
+            <label for="season">Season:</label>
+            <input type="text" id="season" name="DeviceSettings.Season" value="@Model.DeviceSettings.Season" />
+        </div>
+        <div>
+            <label for="receptionPointId">Reception Point Id:</label>
+            <input type="text" id="receptionPointId" name="DeviceSettings.ReceptionPointId" value="@Model.DeviceSettings.ReceptionPointId" />
+        </div>
+        <div>
+            <label for="deviceId">Device Id:</label>
+            <input type="text" id="deviceId" name="DeviceSettings.DeviceId" value="@Model.DeviceSettings.DeviceId" />
+        </div>
+        <div>
+            <label for="authEmail">Auth Email:</label>
+            <input type="text" id="authEmail" name="DeviceSettings.AuthEmail" value="@Model.DeviceSettings.AuthEmail" />
+        </div>
+        <div>
+            <label for="authPassword">Auth Password:</label>
+            <input type="password" id="authPassword" name="DeviceSettings.AuthPassword" value="@Model.DeviceSettings.AuthPassword" />
+        </div>
+        <button type="submit">Save</button>
+    </form>
+}
+else
+{
+    <p>Loading device settings...</p>
+}
