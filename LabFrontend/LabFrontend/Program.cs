@@ -1,3 +1,10 @@
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
+using System.Globalization;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc.Localization;
+using Microsoft.Extensions.Localization;
+
 namespace LabFrontend
 {
     public class Program
@@ -15,6 +22,9 @@ namespace LabFrontend
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
+
+            ConfigureServices(builder.Services);
+
             var app = builder.Build();
             app.UseSession();
 
@@ -35,7 +45,30 @@ namespace LabFrontend
 
             app.MapRazorPages();
 
+            var options = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
             app.Run();
+
+            static void ConfigureServices(IServiceCollection services)
+            {
+                services.AddLocalization(options =>
+                {
+                    options.ResourcesPath = "Resources";
+                });
+
+                services.Configure<RequestLocalizationOptions>(options =>
+                {
+                    options.SetDefaultCulture("en-Us");
+                    options.AddSupportedUICultures("en-US", "uk-UA");
+                    options.FallBackToParentUICultures = true;
+                });
+
+                services
+                    .AddRazorPages()
+                    .AddViewLocalization();
+
+                services.AddScoped<RequestLocalizationCookiesMiddleware>();
+            }
         }
     }
 }

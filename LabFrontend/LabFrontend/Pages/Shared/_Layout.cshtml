@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<Program> Localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -20,31 +23,34 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">
+                                @Localizer["Home"]
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">@Localizer["Privacy"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">@Localizer["Login"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisProcessing">Analisis Processing</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisProcessing">@Localizer["Analisis Processing"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisNurse">Analisis View</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisNurse">@Localizer["Analisis View"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisEnterResult">Analisis Lab As</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisEnterResult">@Localizer["Analisis Results"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AirQuality">Air Quality</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AirQuality">@Localizer["Air Quality"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Devices/Index">Devices</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Devices/Index">@Localizer["Devices"]</a>
                         </li>
                     </ul>
                 </div>
+                <vc:culture-picker />
             </div>
         </nav>
     </header>
