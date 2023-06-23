@@ -1,0 +1,67 @@
+﻿@page
+@model LabFrontend.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="get" action="">
+    <div class="form-group row">
+        <div class="col-md-4">
+            <input class="form-control" type="text" name="SearchString" placeholder="Search" value="@Model.SearchString" />
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" name="Filter">
+                <option value="">All Roles</option>
+                <option value="Admin" selected="@(Model.Filter == "Admin")">Admin</option>
+                <option value="User" selected="@(Model.Filter == "User")">User</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-SortOrder="id_@(Model.SortOrder == "id_asc" ? "desc" : "asc")">Id</a>
+            </th>
+
+            <th>
+                <a asp-page="./Index" asp-route-SortOrder="email_@(Model.SortOrder == "email_asc" ? "desc" : "asc")">Email</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-SortOrder="password_@(Model.SortOrder == "password_asc" ? "desc" : "asc")">Password</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-SortOrder="role_@(Model.SortOrder == "role_asc" ? "desc" : "asc")">Role</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-SortOrder="roleId_@(Model.SortOrder == "roleId_asc" ? "desc" : "asc")">RoleId</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Email</td>
+                <td>@user.Password</td>
+                <td>@user.Role</td>
+                <td>@user.RoleId</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@user.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@user.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="Create">Create New User</a>

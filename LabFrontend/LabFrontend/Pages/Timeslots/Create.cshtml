@@ -1,0 +1,34 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create Timeslot";
+}
+
+<h1>Create Timeslot</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Timeslot.AnalysisReceptionPointId"></label>
+        <input asp-for="Timeslot.AnalysisReceptionPointId" class="form-control" />
+        <span asp-validation-for="Timeslot.AnalysisReceptionPointId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Timeslot.AnalysisResultId"></label>
+        <input asp-for="Timeslot.AnalysisResultId" class="form-control" />
+        <span asp-validation-for="Timeslot.AnalysisResultId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Timeslot.Time"></label>
+        <input asp-for="Timeslot.Time" class="form-control" />
+        <span asp-validation-for="Timeslot.Time" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Timeslot.Avaliable"></label>
+        <div class="form-check">
+            <input asp-for="Timeslot.Avaliable" class="form-check-input" />
+            <label class="form-check-label" asp-for="Timeslot.Avaliable">Available</label>
+        </div>
+        <span asp-validation-for="Timeslot.Avaliable" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

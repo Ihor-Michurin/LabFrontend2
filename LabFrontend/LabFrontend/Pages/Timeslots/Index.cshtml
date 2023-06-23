@@ -1,0 +1,84 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Timeslots";
+}
+
+<h1>Timeslots</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<form method="get">
+    <div class="form-group">
+        <label for="receptionPointId">Filter by Reception Point:</label>
+        <select id="receptionPointId" name="receptionPointId" class="form-control" onchange="this.form.submit()">
+            <option value="">All</option>
+            @foreach (var receptionPointId in Model.ReceptionPointIds)
+            {
+                <option value="@receptionPointId" selected="@Model.SelectedReceptionPointId == receptionPointId">@receptionPointId</option>
+            }
+        </select>
+
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="id_asc">Id</a> |
+                <a asp-page="./Index" asp-route-sortOrder="id_desc">Id</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="reception_point_id_asc">Analysis Reception Point Id</a> |
+                <a asp-page="./Index" asp-route-sortOrder="reception_point_id_desc">Analysis Reception Point Id</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="analysis_result_id_asc">Analysis Result Id</a> |
+                <a asp-page="./Index" asp-route-sortOrder="analysis_result_id_desc">Analysis Result Id</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="time_asc">Time</a> |
+                <a asp-page="./Index" asp-route-sortOrder="time_desc">Time</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="available_asc">Available</a> |
+                <a asp-page="./Index" asp-route-sortOrder="available_desc">Available</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+
+    <tbody>
+        @foreach (var timeslot in Model.Timeslots)
+        {
+            <tr>
+                <td>@timeslot.Id.ToString()</td>
+                <td>@timeslot.AnalysisReceptionPointId</td>
+                <td>@timeslot.AnalysisResultId</td>
+                <td>@timeslot.Time</td>
+                <td>@timeslot.Avaliable</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@timeslot.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@timeslot.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var receptionPointIdSelect = document.getElementById('receptionPointId');
+            receptionPointIdSelect.addEventListener('change', function () {
+                this.form.submit();
+            });
+        });
+    </script>
+}

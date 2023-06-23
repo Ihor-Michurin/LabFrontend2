@@ -141,4 +141,10 @@
   <data name="Privacy" xml:space="preserve">
     <value>Конфіденційність</value>
   </data>
+  <data name="Timeslots" xml:space="preserve">
+    <value>Слоти</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Користувачі</value>
+  </data>
 </root>

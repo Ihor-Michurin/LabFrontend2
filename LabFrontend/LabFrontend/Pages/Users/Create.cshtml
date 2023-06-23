@@ -1,0 +1,27 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="Password" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="Role" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="roleId">RoleId:</label>
+        <input type="text" id="roleId" name="RoleId" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
