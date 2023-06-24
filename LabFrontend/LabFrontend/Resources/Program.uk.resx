@@ -180,6 +180,9 @@
   <data name="Timeslots" xml:space="preserve">
     <value>Слоти</value>
   </data>
+  <data name="User Role" xml:space="preserve">
+    <value>Роль користувача</value>
+  </data>
   <data name="Users" xml:space="preserve">
     <value>Користувачі</value>
   </data>

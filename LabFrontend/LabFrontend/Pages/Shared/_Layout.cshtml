@@ -1,6 +1,7 @@
 ﻿@using Microsoft.Extensions.Localization
 @inject IStringLocalizer<Program> Localizer
-
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,80 +25,113 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">
+                                @Localizer["User Role"]: @Context.Request.Cookies["Role"]
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">
                                 @Localizer["Home"]
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">@Localizer["Privacy"]</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">@Localizer["Login"]</a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page-handler="Logout" id="logoutLink">
-                                @Localizer["Logout"]
-                            </a>
-                        </li>
+                        @if (Context.Request.Cookies["Role"] == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Login">@Localizer["Login"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Register">@Localizer["Register"]</a>
+                            </li>
+                        }
 
+                        @if (Context.Request.Cookies["Role"] != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page-handler="Logout" id="logoutLink">
+                                    @Localizer["Logout"]
+                                </a>
+                            </li>
+                        }
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Register">@Localizer["Register"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisProcessing">@Localizer["Analisis Processing"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisNurse">@Localizer["Analisis View"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisEnterResult">@Localizer["Analisis Results"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AirQuality">@Localizer["Air Quality"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Devices/Index">@Localizer["Devices"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Users/Index">@Localizer["Users"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Timeslots/Index">@Localizer["Timeslots"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Export">@Localizer["Export"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Import">@Localizer["Import"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Delete">@Localizer["Delete"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AirQualityMeasurements/Index">@Localizer["AirQualityMeasurements"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalysisM/Index">@Localizer["Analysis"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalysisResults/Index">@Localizer["AnalysisResults"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AnalysisReceptionPoints/Index">@Localizer["AnalysisReceptionPoints"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/LaboratoryAssistants/Index">@Localizer["LaboratoryAssistants"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Nurses/Index">@Localizer["Nurses"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Patients/Index">@Localizer["Patients"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Registrars/Index">@Localizer["Registrars"]</a>
-                        </li>
+                        @if (Context.Request.Cookies["Role"] == "Registrar")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisProcessing">@Localizer["Analisis Processing"]</a>
+                            </li>
+                        }
+
+                        @if (Context.Request.Cookies["Role"] == "Nurse")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisNurse">@Localizer["Analisis View"]</a>
+                            </li>
+                        }
+
+                        @if (Context.Request.Cookies["Role"] == "LaboratoryAssistant")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/AnalisisEnterResult">@Localizer["Analisis Results"]</a>
+                            </li>
+                        }
+
+                        @if (Context.Request.Cookies["Role"] == "Registrar" || Context.Request.Cookies["Role"] == "Admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/AirQuality">@Localizer["Air Quality"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Devices/Index">@Localizer["Devices"]</a>
+                            </li>
+                        }
+                        
+                        @if (Context.Request.Cookies["Role"] == "Admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Timeslots/Index">@Localizer["Timeslots"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Users/Index">@Localizer["Users"]</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Export">@Localizer["Export"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Import">@Localizer["Import"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Delete">@Localizer["Delete"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/AirQualityMeasurements/Index">@Localizer["AirQualityMeasurements"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/AnalysisM/Index">@Localizer["Analysis"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/AnalysisResults/Index">@Localizer["AnalysisResults"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/AnalysisReceptionPoints/Index">@Localizer["AnalysisReceptionPoints"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/LaboratoryAssistants/Index">@Localizer["LaboratoryAssistants"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Nurses/Index">@Localizer["Nurses"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Patients/Index">@Localizer["Patients"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Registrars/Index">@Localizer["Registrars"]</a>
+                            </li>
+                        }
                     </ul>
                 </div>
                 <vc:culture-picker />

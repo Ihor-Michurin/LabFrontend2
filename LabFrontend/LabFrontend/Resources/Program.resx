@@ -180,6 +180,9 @@
   <data name="Timeslots" xml:space="preserve">
     <value>Timeslots</value>
   </data>
+  <data name="User Role" xml:space="preserve">
+    <value>User Role</value>
+  </data>
   <data name="Users" xml:space="preserve">
     <value>Users</value>
   </data>
