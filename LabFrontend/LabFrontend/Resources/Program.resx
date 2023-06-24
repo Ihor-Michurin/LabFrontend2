@@ -136,10 +136,10 @@
     <value>Analysis</value>
   </data>
   <data name="AnalysisReceptionPoints" xml:space="preserve">
-    <value>AnalysisReceptionPoints</value>
+    <value>Analysis Reception Points</value>
   </data>
   <data name="AnalysisResults" xml:space="preserve">
-    <value>AnalysisResults</value>
+    <value>Analysis Results</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
@@ -157,10 +157,13 @@
     <value>Import</value>
   </data>
   <data name="LaboratoryAssistants" xml:space="preserve">
-    <value>LaboratoryAssistants</value>
+    <value>Laboratory Assistants</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
   </data>
   <data name="Nurses" xml:space="preserve">
     <value>Nurses</value>
