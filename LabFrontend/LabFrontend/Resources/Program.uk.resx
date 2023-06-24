@@ -120,6 +120,9 @@
   <data name="Air Quality" xml:space="preserve">
     <value>Якість повітря</value>
   </data>
+  <data name="AirQualityMeasurements" xml:space="preserve">
+    <value>Виміри якості повітря</value>
+  </data>
   <data name="Analisis Processing" xml:space="preserve">
     <value>Обробка аналізів</value>
   </data>
@@ -129,11 +132,20 @@
   <data name="Analisis View" xml:space="preserve">
     <value>Перегляд аналізів</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалення</value>
+  </data>
   <data name="Devices" xml:space="preserve">
     <value>Розумні пристрої</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Експорт</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Головна</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Імпорт</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Увійти</value>

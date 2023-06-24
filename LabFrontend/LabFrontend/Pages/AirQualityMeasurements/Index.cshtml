@@ -1,0 +1,80 @@
+﻿@page
+@model IndexModel
+
+<h1>Air Quality Measurements</h1>
+
+<form method="get">
+    <label for="limit">Limit:</label>
+    <input type="number" name="limit" id="limit" min="1" max="100" value="@Model.Limit" />
+    <input type="submit" value="Apply" />
+</form>
+
+<form method="get" class="pagination-form">
+    <input type="hidden" name="limit" value="@Model.Limit" />
+    <label for="page">Page:</label>
+    <input type="number" name="page" id="page" min="1" max="@Model.TotalPages" value="@Model.CurrentPage" />
+    <input type="submit" value="Go" />
+</form>
+
+<a asp-page="Create">Create New User</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Reception Point Id</th>
+            <th>Date</th>
+            <th>Temperature</th>
+            <th>Pressure</th>
+            <th>Humidity</th>
+            <th>IAQ</th>
+            <th>CO2 Equivalent</th>
+            <th>Breath VOC Equivalent</th>
+            <th>Is Normal</th>
+            <th>IAQ Level</th>
+            <th>Season</th>
+            <th>Actions</th> <!-- New column for buttons -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var measurement in Model.AirQualityMeasurements)
+        {
+            <tr>
+                <td>@measurement.Id</td>
+                <td>@measurement.ReceptionPointId</td>
+                <td>@measurement.Date</td>
+                <td>@measurement.Temperature</td>
+                <td>@measurement.Pressure</td>
+                <td>@measurement.Humidity</td>
+                <td>@measurement.Iaq</td>
+                <td>@measurement.Co2Equivalent</td>
+                <td>@measurement.BreathVocEquivalent</td>
+                <td>@measurement.IsNormal</td>
+                <td>@measurement.IaqLevel</td>
+                <td>@measurement.Season</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@measurement.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@measurement.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts {
+    <script>
+        document.querySelector('.pagination-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var pageInput = document.getElementById('page');
+            var limitInput = document.getElementById('limit');
+            var page = parseInt(pageInput.value);
+            var limit = parseInt(limitInput.value);
+            var queryParams = new URLSearchParams(window.location.search);
+            queryParams.set('page', page);
+            queryParams.set('limit', limit);
+            var newUrl = window.location.pathname + '?' + queryParams.toString();
+            window.location.href = newUrl;
+        });
+    </script>
+}

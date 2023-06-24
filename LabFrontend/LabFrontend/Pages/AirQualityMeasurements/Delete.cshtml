@@ -1,0 +1,39 @@
+﻿@page
+@model LabFrontend.Pages.AirQualityMeasurements.DeleteModel
+
+<h1>Delete Air Quality Measurement</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="AirQualityMeasurement.Id" />
+
+    <div>
+        <p>Are you sure you want to delete this air quality measurement?</p>
+        <dl class="row">
+            <dt class="col-sm-2">Id</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.Id</dd>
+            <dt class="col-sm-2">Reception Point Id</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.ReceptionPointId</dd>
+            <dt class="col-sm-2">Date</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.Date</dd>
+            <dt class="col-sm-2">Temperature</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.Temperature</dd>
+            <dt class="col-sm-2">Pressure</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.Pressure</dd>
+            <dt class="col-sm-2">Humidity</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.Humidity</dd>
+            <dt class="col-sm-2">IAQ</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.Iaq</dd>
+            <dt class="col-sm-2">CO2 Equivalent</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.Co2Equivalent</dd>
+            <dt class="col-sm-2">Breath VOC Equivalent</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.BreathVocEquivalent</dd>
+            <dt class="col-sm-2">Is Normal</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.IsNormal</dd>
+            <dt class="col-sm-2">IAQ Level</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.IaqLevel</dd>
+            <dt class="col-sm-2">Season</dt>
+            <dd class="col-sm-10">@Model.AirQualityMeasurement.Season</dd>
+        </dl>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
