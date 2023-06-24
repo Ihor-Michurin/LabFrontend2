@@ -171,6 +171,9 @@
   <data name="Privacy" xml:space="preserve">
     <value>Privacy</value>
   </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
   <data name="Registrars" xml:space="preserve">
     <value>Registrars</value>
   </data>

@@ -52,9 +52,9 @@ namespace LabFrontend.Pages
                     var userResult = JsonSerializer.Deserialize<UserResult>(content, _jsonSerializerOptions);
 
                     // Store the user result in cookies
-                    Response.Cookies.Append("Token", userResult.Token);
-                    Response.Cookies.Append("Role", userResult.Role);
-                    Response.Cookies.Append("RoleId", userResult.RoleId.ToString());
+                    Response.Cookies.Append("Token", userResult.Token ?? "");
+                    Response.Cookies.Append("Role", userResult.Role ?? "");
+                    Response.Cookies.Append("RoleId", userResult.RoleId.ToString() ?? "");
 
                     return RedirectToPage("/Index");
                 }

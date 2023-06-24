@@ -171,6 +171,9 @@
   <data name="Privacy" xml:space="preserve">
     <value>Конфіденційність</value>
   </data>
+  <data name="Register" xml:space="preserve">
+    <value>Реєстрація</value>
+  </data>
   <data name="Registrars" xml:space="preserve">
     <value>Реєстратори</value>
   </data>
