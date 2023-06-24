@@ -1,0 +1,38 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create Nurse";
+}
+
+<h1>Create Nurse</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nurse.Name" class="control-label"></label>
+                <input asp-for="Nurse.Name" class="form-control" />
+                <span asp-validation-for="Nurse.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nurse.DateOfBirth" class="control-label"></label>
+                <input type="date" input asp-for="Nurse.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Nurse.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nurse.Gender" class="control-label"></label>
+                <input asp-for="Nurse.Gender" class="form-control" />
+                <span asp-validation-for="Nurse.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nurse.ContactInformation" class="control-label"></label>
+                <input asp-for="Nurse.ContactInformation" class="form-control" />
+                <span asp-validation-for="Nurse.ContactInformation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

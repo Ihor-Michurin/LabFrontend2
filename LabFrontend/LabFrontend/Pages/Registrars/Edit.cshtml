@@ -1,0 +1,40 @@
+﻿@page
+@model EditModel
+
+<h1>Edit Registrar</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Registrar.Id" />
+
+    <div class="form-group">
+        <label asp-for="Registrar.Name"></label>
+        <input asp-for="Registrar.Name" class="form-control" />
+        <span asp-validation-for="Registrar.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Registrar.DateOfBirth"></label>
+        <input asp-for="Registrar.DateOfBirth" type="date" class="form-control" />
+        <span asp-validation-for="Registrar.DateOfBirth" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Registrar.Gender"></label>
+        <input asp-for="Registrar.Gender" class="form-control" />
+        <span asp-validation-for="Registrar.Gender" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Registrar.ContactInformation"></label>
+        <input asp-for="Registrar.ContactInformation" class="form-control" />
+        <span asp-validation-for="Registrar.ContactInformation" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Registrar.NotifyLevel"></label>
+        <input asp-for="Registrar.NotifyLevel" class="form-control" />
+        <span asp-validation-for="Registrar.NotifyLevel" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

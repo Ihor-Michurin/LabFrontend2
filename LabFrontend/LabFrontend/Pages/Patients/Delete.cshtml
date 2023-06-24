@@ -1,0 +1,11 @@
+﻿@page
+@model DeleteModel
+
+<h2>Confirm Delete</h2>
+<p>
+    Are you sure you want to delete the patient: <strong>@Model.Patient.Name</strong>?
+</p>
+<form method="post">
+    <input type="hidden" asp-for="Patient.Id" />
+    <button type="submit">Delete</button>
+</form>

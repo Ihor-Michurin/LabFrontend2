@@ -1,0 +1,30 @@
+﻿@page
+@model EditModel
+
+<h1>Edit Laboratory Assistant</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="LaboratoryAssistant.Id" />
+
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input class="form-control" asp-for="LaboratoryAssistant.Name" required>
+    </div>
+    <div class="form-group">
+        <label for="DateOfBirth">Date of Birth</label>
+        <input type="date" class="form-control" asp-for="LaboratoryAssistant.DateOfBirth" required>
+    </div>
+    <div class="form-group">
+        <label for="Gender">Gender</label>
+        <select class="form-control" asp-for="LaboratoryAssistant.Gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="ContactInformation">Contact Information</label>
+        <input class="form-control" asp-for="LaboratoryAssistant.ContactInformation" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index">Back to List</a>
+</form>

@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+
+<h1>Laboratory Assistants</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Contact Information</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var laboratoryAssistant in Model.LaboratoryAssistants)
+        {
+            <tr>
+                <td>@laboratoryAssistant.Id</td>
+                <td>@laboratoryAssistant.Name</td>
+                <td>@laboratoryAssistant.DateOfBirth</td>
+                <td>@laboratoryAssistant.Gender</td>
+                <td>@laboratoryAssistant.ContactInformation</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@laboratoryAssistant.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@laboratoryAssistant.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

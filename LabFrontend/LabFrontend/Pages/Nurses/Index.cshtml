@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Nurse Index";
+}
+
+<h1>Nurse Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Contact Information</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var nurse in Model.Nurses)
+        {
+            <tr>
+                <td>@nurse.Id</td>
+                <td>@nurse.Name</td>
+                <td>@nurse.DateOfBirth.ToShortDateString()</td>
+                <td>@nurse.Gender</td>
+                <td>@nurse.ContactInformation</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@nurse.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@nurse.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

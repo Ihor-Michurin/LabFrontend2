@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+
+<h1>Registrars</h1>
+<a asp-page="./Create" class="btn btn-primary">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Contact Information</th>
+            <th>Notify Level</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var registrar in Model.Registrars)
+        {
+            <tr>
+                <td>@registrar.Id</td>
+                <td>@registrar.Name</td>
+                <td>@registrar.DateOfBirth.ToShortDateString()</td>
+                <td>@registrar.Gender</td>
+                <td>@registrar.ContactInformation</td>
+                <td>@registrar.NotifyLevel</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@registrar.Id">Edit</a> |
+                    <a asp-page="./Delete" asp-route-id="@registrar.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -132,6 +132,15 @@
   <data name="Analisis View" xml:space="preserve">
     <value>Analisis View</value>
   </data>
+  <data name="Analysis" xml:space="preserve">
+    <value>Analysis</value>
+  </data>
+  <data name="AnalysisReceptionPoints" xml:space="preserve">
+    <value>AnalysisReceptionPoints</value>
+  </data>
+  <data name="AnalysisResults" xml:space="preserve">
+    <value>AnalysisResults</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -147,11 +156,23 @@
   <data name="Import" xml:space="preserve">
     <value>Import</value>
   </data>
+  <data name="LaboratoryAssistants" xml:space="preserve">
+    <value>LaboratoryAssistants</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="Nurses" xml:space="preserve">
+    <value>Nurses</value>
+  </data>
+  <data name="Patients" xml:space="preserve">
+    <value>Patients</value>
+  </data>
   <data name="Privacy" xml:space="preserve">
     <value>Privacy</value>
+  </data>
+  <data name="Registrars" xml:space="preserve">
+    <value>Registrars</value>
   </data>
   <data name="Timeslots" xml:space="preserve">
     <value>Timeslots</value>

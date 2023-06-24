@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+
+<h1>Analysis Reception Points</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Contact Information</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var point in Model.ReceptionPoints)
+        {
+            <tr>
+                <td>@point.Id</td>
+                <td>@point.Name</td>
+                <td>@point.Address</td>
+                <td>@point.ContactInformation</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@point.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@point.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

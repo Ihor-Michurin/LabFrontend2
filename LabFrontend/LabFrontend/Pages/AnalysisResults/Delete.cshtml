@@ -1,0 +1,14 @@
+﻿@page "{id}"
+@model DeleteModel
+@{
+    ViewData["Title"] = "Delete Analysis Result";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Are you sure you want to delete this analysis result?</p>
+
+<form method="get">
+    <button type="submit">Yes</button>
+    <a asp-page="Index">No</a>
+</form>

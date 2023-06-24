@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Analysis Results";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p><a asp-page="Create">Create New Analysis Result</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>PatientId</th>
+            <th>LaboratoryAssistantId</th>
+            <th>NurseId</th>
+            <th>RegistrarId</th>
+            <th>AnalysisId</th>
+            <th>AnalysisValues</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var analysisResult in Model.AnalysisResults)
+        {
+            <tr>
+                <td>@analysisResult.Id</td>
+                <td>@analysisResult.PatientId</td>
+                <td>@analysisResult.LaboratoryAssistantId</td>
+                <td>@analysisResult.NurseId</td>
+                <td>@analysisResult.RegistrarId</td>
+                <td>@analysisResult.AnalysisId</td>
+                <td>@analysisResult.AnalysisValues</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@analysisResult.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@analysisResult.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

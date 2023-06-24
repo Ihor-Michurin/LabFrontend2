@@ -1,0 +1,36 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create Analysis Result";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="AnalysisResult.PatientId"></label>
+        <input asp-for="AnalysisResult.PatientId" />
+    </div>
+    <div>
+        <label asp-for="AnalysisResult.LaboratoryAssistantId"></label>
+        <input asp-for="AnalysisResult.LaboratoryAssistantId" />
+    </div>
+    <div>
+        <label asp-for="AnalysisResult.NurseId"></label>
+        <input asp-for="AnalysisResult.NurseId" />
+    </div>
+    <div>
+        <label asp-for="AnalysisResult.RegistrarId"></label>
+        <input asp-for="AnalysisResult.RegistrarId" />
+    </div>
+    <div>
+        <label asp-for="AnalysisResult.AnalysisId"></label>
+        <input asp-for="AnalysisResult.AnalysisId" />
+    </div>
+    <div>
+        <label asp-for="AnalysisResult.AnalysisValues"></label>
+        <input asp-for="AnalysisResult.AnalysisValues" />
+    </div>
+
+    <button type="submit">Create</button>
+</form>

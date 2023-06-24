@@ -1,0 +1,28 @@
+﻿@page
+@model EditModel
+
+<form method="post">
+    <input type="hidden" asp-for="Patient.Id" />
+
+    <div>
+        <label>Name:</label>
+        <input asp-for="Patient.Name" />
+        <span asp-validation-for="Patient.Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Date of Birth:</label>
+        <input asp-for="Patient.DateOfBirth" />
+        <span asp-validation-for="Patient.DateOfBirth" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Gender:</label>
+        <input asp-for="Patient.Gender" />
+        <span asp-validation-for="Patient.Gender" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Contact Information:</label>
+        <input asp-for="Patient.ContactInformation" />
+        <span asp-validation-for="Patient.ContactInformation" class="text-danger"></span>
+    </div>
+    <button type="submit">Save</button>
+</form>

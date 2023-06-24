@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Contact Information</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var patient in Model.Patients)
+        {
+            <tr>
+                <td>@patient.Name</td>
+                <td>@patient.DateOfBirth.ToShortDateString()</td>
+                <td>@patient.Gender</td>
+                <td>@patient.ContactInformation</td>
+                <td>
+                    <div class="btn-group">
+                        <a asp-page="Edit" asp-route-id="@patient.Id">Edit</a> |
+                        <a asp-page="Delete" asp-route-id="@patient.Id">Delete</a> |
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

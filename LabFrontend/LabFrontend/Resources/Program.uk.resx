@@ -132,6 +132,15 @@
   <data name="Analisis View" xml:space="preserve">
     <value>Перегляд аналізів</value>
   </data>
+  <data name="Analysis" xml:space="preserve">
+    <value>Аналізи</value>
+  </data>
+  <data name="AnalysisReceptionPoints" xml:space="preserve">
+    <value>Пункти прийому аналізів</value>
+  </data>
+  <data name="AnalysisResults" xml:space="preserve">
+    <value>Результати аналізів</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Видалення</value>
   </data>
@@ -147,11 +156,23 @@
   <data name="Import" xml:space="preserve">
     <value>Імпорт</value>
   </data>
+  <data name="LaboratoryAssistants" xml:space="preserve">
+    <value>Лаборанти</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Увійти</value>
   </data>
+  <data name="Nurses" xml:space="preserve">
+    <value>Медсестри</value>
+  </data>
+  <data name="Patients" xml:space="preserve">
+    <value>Пацієнти</value>
+  </data>
   <data name="Privacy" xml:space="preserve">
     <value>Конфіденційність</value>
+  </data>
+  <data name="Registrars" xml:space="preserve">
+    <value>Реєстратори</value>
   </data>
   <data name="Timeslots" xml:space="preserve">
     <value>Слоти</value>

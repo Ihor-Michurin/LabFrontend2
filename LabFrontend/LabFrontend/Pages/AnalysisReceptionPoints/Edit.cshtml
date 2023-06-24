@@ -1,0 +1,25 @@
+﻿@page "{id}"
+@model EditModel
+
+<h1>Edit Analysis Reception Point</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="ReceptionPoint.Id" />
+
+    <div class="form-group">
+        <label asp-for="ReceptionPoint.Name"></label>
+        <input asp-for="ReceptionPoint.Name" class="form-control" />
+        <span asp-validation-for="ReceptionPoint.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReceptionPoint.Address"></label>
+        <input asp-for="ReceptionPoint.Address" class="form-control" />
+        <span asp-validation-for="ReceptionPoint.Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReceptionPoint.ContactInformation"></label>
+        <input asp-for="ReceptionPoint.ContactInformation" class="form-control" />
+        <span asp-validation-for="ReceptionPoint.ContactInformation" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
