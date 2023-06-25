@@ -10,28 +10,28 @@
 {
     <form method="post">
         <div>
-            <label for="counterCount">Counter Count:</label>
-            <input type="number" id="counterCount" name="DeviceSettings.CounterCount" value="@Model.DeviceSettings.CounterCount" />
+            <label asp-for="DeviceSettings.CounterCount">Counter Count:</label>
+            <input asp-for="DeviceSettings.CounterCount" style="width: 300px;" />
         </div>
         <div>
-            <label for="season">Season:</label>
-            <input type="text" id="season" name="DeviceSettings.Season" value="@Model.DeviceSettings.Season" />
+            <label asp-for="DeviceSettings.Season">Season:</label>
+            <input asp-for="DeviceSettings.Season" style="width: 300px;" />
         </div>
         <div>
-            <label for="receptionPointId">Reception Point Id:</label>
-            <input type="text" id="receptionPointId" name="DeviceSettings.ReceptionPointId" value="@Model.DeviceSettings.ReceptionPointId" />
+            <label asp-for="DeviceSettings.ReceptionPointId">Reception Point Id:</label>
+            <input asp-for="DeviceSettings.ReceptionPointId" style="width: 400px;" />
         </div>
         <div>
-            <label for="deviceId">Device Id:</label>
-            <input type="text" id="deviceId" name="DeviceSettings.DeviceId" value="@Model.DeviceSettings.DeviceId" />
+            <label asp-for="DeviceSettings.DeviceId">Device Id:</label>
+            <input asp-for="DeviceSettings.DeviceId" style="width: 300px;" />
         </div>
         <div>
-            <label for="authEmail">Auth Email:</label>
-            <input type="text" id="authEmail" name="DeviceSettings.AuthEmail" value="@Model.DeviceSettings.AuthEmail" />
+            <label asp-for="DeviceSettings.AuthEmail">Auth Email:</label>
+            <input asp-for="DeviceSettings.AuthEmail" style="width: 300px;" />
         </div>
         <div>
-            <label for="authPassword">Auth Password:</label>
-            <input type="password" id="authPassword" name="DeviceSettings.AuthPassword" value="@Model.DeviceSettings.AuthPassword" />
+            <label asp-for="DeviceSettings.AuthPassword">Auth Password:</label>
+            <input asp-for="DeviceSettings.AuthPassword" type="password" style="width: 300px;" />
         </div>
         <button type="submit">Save</button>
     </form>

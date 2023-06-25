@@ -3,19 +3,6 @@
 
 <h1>Air Quality Measurements</h1>
 
-<form method="get">
-    <label for="limit">Limit:</label>
-    <input type="number" name="limit" id="limit" min="1" max="100" value="@Model.Limit" />
-    <input type="submit" value="Apply" />
-</form>
-
-<form method="get" class="pagination-form">
-    <input type="hidden" name="limit" value="@Model.Limit" />
-    <label for="page">Page:</label>
-    <input type="number" name="page" id="page" min="1" max="@Model.TotalPages" value="@Model.CurrentPage" />
-    <input type="submit" value="Go" />
-</form>
-
 <a asp-page="Create">Create New User</a>
 
 <table class="table">
@@ -60,21 +47,3 @@
         }
     </tbody>
 </table>
-
-
-@section scripts {
-    <script>
-        document.querySelector('.pagination-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            var pageInput = document.getElementById('page');
-            var limitInput = document.getElementById('limit');
-            var page = parseInt(pageInput.value);
-            var limit = parseInt(limitInput.value);
-            var queryParams = new URLSearchParams(window.location.search);
-            queryParams.set('page', page);
-            queryParams.set('limit', limit);
-            var newUrl = window.location.pathname + '?' + queryParams.toString();
-            window.location.href = newUrl;
-        });
-    </script>
-}

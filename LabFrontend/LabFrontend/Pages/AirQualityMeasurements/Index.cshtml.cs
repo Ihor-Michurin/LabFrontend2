@@ -23,9 +23,6 @@ namespace LabFrontend.Pages.AirQualityMeasurements
         }
 
         public List<AirQualityMeasurement> AirQualityMeasurements { get; set; }
-        public int Limit { get; set; } = 10;
-        public int CurrentPage { get; set; } = 1;
-        public int TotalPages { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? limit, int? page)
         {
@@ -48,15 +45,6 @@ namespace LabFrontend.Pages.AirQualityMeasurements
 
                 AirQualityMeasurements = measurements;
 
-                // Calculate total pages
-                TotalPages = (int)Math.Ceiling((double)measurements.Count / Limit);
-
-                // Apply pagination
-                page = page == null ? 1 : page;
-
-                CurrentPage = page.Value;
-                var startIndex = (CurrentPage - 1) * Limit;
-                AirQualityMeasurements = measurements.Skip(startIndex).Take(Limit).ToList();
 
             }
             else
