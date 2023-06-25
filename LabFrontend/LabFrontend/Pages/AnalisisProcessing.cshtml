@@ -3,6 +3,7 @@
 
 <h1>Analysis Result Processing</h1>
 
+@if(Model.AnalysisResults != null){
 @for (var i = 0; i < Model.AnalysisResults.Count; i++)
 {
     var result = Model.AnalysisResults[i];
@@ -48,4 +49,5 @@
     </form>
 
     <hr />
+}
 }

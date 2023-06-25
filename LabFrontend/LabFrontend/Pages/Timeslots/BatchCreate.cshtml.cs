@@ -38,6 +38,9 @@ namespace LabFrontend.Pages.Timeslots
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                Timeslot.startDate = Timeslot.startDate.ToUniversalTime();
+                Timeslot.endDate = Timeslot.endDate.ToUniversalTime();
+
                 Timeslot.startDate = DateTime.SpecifyKind(Timeslot.startDate, DateTimeKind.Utc);
                 Timeslot.endDate = DateTime.SpecifyKind(Timeslot.endDate, DateTimeKind.Utc);
 

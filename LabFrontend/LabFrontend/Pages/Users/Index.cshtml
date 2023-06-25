@@ -13,9 +13,14 @@
         </div>
         <div class="col-md-4">
             <select class="form-control" name="Filter">
-                <option value="">All Roles</option>
+                <option value="Select">All Roles</option>
                 <option value="Admin" selected="@(Model.Filter == "Admin")">Admin</option>
-                <option value="User" selected="@(Model.Filter == "User")">User</option>
+                <option value="Patient" selected="@(Model.Filter == "Patient")">Patient</option>
+                <option value="Registrar" selected="@(Model.Filter == "Registrar")">Registrar</option>
+                <option value="Nurse" selected="@(Model.Filter == "Nurse")">Nurse</option>
+                <option value="LaboratoryAssistant" selected="@(Model.Filter == "LaboratoryAssistant")">LaboratoryAssistant</option>
+                <option value="" selected="@(Model.Filter == "")">Empty</option>
+
             </select>
         </div>
         <div class="col-md-4">

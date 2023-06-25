@@ -45,7 +45,7 @@ namespace LabFrontend.Pages
             var token = Request.Cookies["Token"];
 
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await httpClient.GetAsync(apiUrl + "api/AnalysisResult/processing/" + Request.Cookies["RoleId"]);
+            var response = await httpClient.GetAsync(apiUrl + "api/AnalysisResult/processingnurse/" + Request.Cookies["RoleId"]);
             if (response.IsSuccessStatusCode)
             {
                 var responseData = await response.Content.ReadAsStringAsync();

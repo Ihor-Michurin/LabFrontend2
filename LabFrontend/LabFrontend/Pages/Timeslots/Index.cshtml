@@ -17,10 +17,10 @@
     <div class="form-group">
         <label for="receptionPointId">Filter by Reception Point:</label>
         <select id="receptionPointId" name="receptionPointId" class="form-control" onchange="this.form.submit()">
-            <option value="">All</option>
+            <option value="@null">All</option>
             @foreach (var receptionPointId in Model.ReceptionPointIds)
             {
-                <option value="@receptionPointId" selected="@Model.SelectedReceptionPointId == receptionPointId">@receptionPointId</option>
+                <option value="@receptionPointId">@receptionPointId</option>
             }
         </select>
 
@@ -59,6 +59,7 @@
     <tbody>
         @foreach (var timeslot in Model.Timeslots)
         {
+            timeslot.Time = timeslot.Time.ToLocalTime();
             <tr>
                 <td>@timeslot.Id.ToString()</td>
                 <td>@timeslot.AnalysisReceptionPointId</td>

@@ -20,7 +20,7 @@ namespace LabFrontend.Pages.Users
         public string SortOrder { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string Filter { get; set; }
+        public string Filter { get; set; } = "Select";
 
         public IndexModel(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
@@ -51,7 +51,7 @@ namespace LabFrontend.Pages.Users
                 }
 
                 // Filter
-                if (!string.IsNullOrEmpty(Filter))
+                if (Filter != "Select")
                 {
                     allUsers = allUsers.Where(u => u.Role == Filter).ToList();
                 }

@@ -13,6 +13,7 @@
             <th>Gender</th>
             <th>Contact Information</th>
             <th>Notify Level</th>
+            <th>Analisis Reception Point Id</th>
             <th></th>
         </tr>
     </thead>
@@ -26,6 +27,8 @@
                 <td>@registrar.Gender</td>
                 <td>@registrar.ContactInformation</td>
                 <td>@registrar.NotifyLevel</td>
+                <td>@registrar.AnalysisReceptionPointId</td>
+
                 <td>
                     <a asp-page="./Edit" asp-route-id="@registrar.Id">Edit</a> |
                     <a asp-page="./Delete" asp-route-id="@registrar.Id">Delete</a>

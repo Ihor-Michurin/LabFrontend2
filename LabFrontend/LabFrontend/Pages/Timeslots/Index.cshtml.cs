@@ -44,7 +44,7 @@ namespace LabFrontend.Pages.Timeslots
             {
                 var selectedReceptionPointIdGuid = Guid.Parse(receptionPointId);
                 Timeslots = Timeslots.Where(t => t.AnalysisReceptionPointId == selectedReceptionPointIdGuid).ToList();
-                SelectedReceptionPointId = receptionPointId;
+                //SelectedReceptionPointId = receptionPointId;
             }
 
             // Apply the filter
