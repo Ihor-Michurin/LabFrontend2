@@ -17,7 +17,7 @@ namespace LabFrontend.Pages.Timeslots
         }
 
         public List<Timeslot> Timeslots { get; set; }
-        public List<Guid> ReceptionPointIds { get; set; }
+        public List<Guid?> ReceptionPointIds { get; set; }
         public string SelectedReceptionPointId { get; set; }
         public string SortOrder { get; set; }
 
